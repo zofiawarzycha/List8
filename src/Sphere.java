@@ -26,11 +26,20 @@ public class Sphere {
      * @param radius the new radius
      */
     public void setRadius(double radius) {
-        if (radius < 0) {
+        // Task 9: Code broken into meaningful method
+        if (isValidRadius(radius)) {
+            this.radius = radius;
+        } else {
             System.out.println("Error: Radius cannot be negative. Setting to 0.");
             this.radius = 0;
-        } else {
-            this.radius = radius;
         }
+    }
+
+    /**
+     * Helper method to validate radius value.
+     * Task 9: Extracted meaningful method.
+     */
+    private boolean isValidRadius(double value) {
+        return value >= 0;
     }
 }
