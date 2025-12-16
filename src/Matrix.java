@@ -23,7 +23,6 @@ public class Matrix {
 
     /**
      * Private constructor for internal use (creating empty result matrices).
-     * This avoids filling the matrix with random numbers when we just want a container.
      */
     private Matrix(int rows, int cols, boolean empty) {
         this.rows = rows;
@@ -31,29 +30,17 @@ public class Matrix {
         this.data = new int[rows][cols];
     }
 
-    /**
-     * Gets the number of rows.
-     * Access modifier: PUBLIC
-     * Why: Read-only access to dimensions is safe and necessary for external calculations.
-     * @return row count
-     */
     public int getRows() {
         return rows;
     }
 
-    /**
-     * Gets the number of columns.
-     * Access modifier: PUBLIC
-     * Why: Read-only access to dimensions is safe.
-     * @return column count
-     */
     public int getCols() {
         return cols;
     }
 
     /**
      * Helper method to populate the matrix with random numbers.
-     * Task 9: Extracted method for better readability.
+     * Task 13: Computational Complexity: O(rows * cols) - we iterate through every cell once.
      */
     private void populateWithRandomValues() {
         Random random = new Random();
@@ -66,7 +53,7 @@ public class Matrix {
 
     /**
      * Prints the matrix to the console.
-     * Task 12: Implemented print functionality.
+     * Task 13: Computational Complexity: O(rows * cols) - linear relative to number of elements.
      */
     public void print() {
         for (int row = 0; row < rows; row++) {
@@ -78,8 +65,8 @@ public class Matrix {
     }
 
     /**
-     * Transposes the matrix (swaps rows and columns).
-     * Task 12: Implemented transpose functionality.
+     * Transposes the matrix.
+     * Task 13: Computational Complexity: O(rows * cols) - we visit every element once to move it.
      * @return a new Matrix object representing the transpose
      */
     public Matrix transpose() {
@@ -94,7 +81,7 @@ public class Matrix {
 
     /**
      * Multiplies this matrix by another matrix.
-     * Task 12: Implemented matrix multiplication.
+     * Task 13: Computational Complexity: O(rows * cols * other.cols) - Standard cubic complexity for matrix multiplication.
      * @param other the matrix to multiply by
      * @return result Matrix or null if dimensions mismatch
      */
@@ -117,7 +104,7 @@ public class Matrix {
 
     /**
      * Prints the matrix elements in spiral order.
-     * Task 12: Implemented spiral order printing.
+     * Task 13: Computational Complexity: O(rows * cols) - each element is visited and printed exactly once.
      */
     public void printSpiral() {
         int top = 0, bottom = rows - 1;
@@ -125,21 +112,14 @@ public class Matrix {
 
         System.out.print("Spiral: ");
         while (top <= bottom && left <= right) {
-            // Traverse Right
             for (int i = left; i <= right; i++) System.out.print(data[top][i] + " ");
             top++;
-
-            // Traverse Down
             for (int i = top; i <= bottom; i++) System.out.print(data[i][right] + " ");
             right--;
-
-            // Traverse Left
             if (top <= bottom) {
                 for (int i = right; i >= left; i--) System.out.print(data[bottom][i] + " ");
                 bottom--;
             }
-
-            // Traverse Up
             if (left <= right) {
                 for (int i = bottom; i >= top; i--) System.out.print(data[i][left] + " ");
                 left++;
