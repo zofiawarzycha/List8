@@ -37,6 +37,24 @@ public class Circle {
     }
 
     /**
+     * Calculates the area of the circle.
+     * Task 10: Implemented area computation.
+     * @return calculated area
+     */
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    /**
+     * Calculates the perimeter (circumference) of the circle.
+     * Task 10: Implemented circumference computation.
+     * @return calculated circumference
+     */
+    public double calculateCircumference() {
+        return 2 * Math.PI * radius;
+    }
+
+    /**
      * Helper method to validate radius value.
      * Task 9: Extracted meaningful method.
      */
