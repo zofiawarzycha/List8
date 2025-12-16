@@ -36,6 +36,24 @@ public class Sphere {
     }
 
     /**
+     * Calculates the total surface area of the sphere.
+     * Task 11: Implemented surface area computation.
+     * @return surface area
+     */
+    public double calculateSurfaceArea() {
+        return 4 * Math.PI * radius * radius;
+    }
+
+    /**
+     * Calculates the volume of the sphere.
+     * Task 11: Implemented volume computation.
+     * @return volume
+     */
+    public double calculateVolume() {
+        return (4.0 / 3.0) * Math.PI * Math.pow(radius, 3);
+    }
+
+    /**
      * Helper method to validate radius value.
      * Task 9: Extracted meaningful method.
      */
